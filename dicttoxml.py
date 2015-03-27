@@ -13,7 +13,6 @@ version = __version__
 from random import randint
 import collections
 import numbers
-import logging
 import sys
 from xml.dom.minidom import parseString
 
@@ -135,8 +134,7 @@ def convert_dict(obj, ids, parent, attr_type):
     output = []
     addline = output.append
     for key, val in obj.items():
-        LOG.info('Looping inside convert_dict(): key="%s", val="%s", type(val)="%s"' % (unicode_me(key), unicode_me(val), type(val).__name__))
-
+        
         attr = {} if not ids else {'id': '%s' % (get_unique_id(parent)) }
 
         key, attr = make_valid_xml_name(key, attr)
@@ -177,7 +175,6 @@ def convert_list(items, ids, parent, attr_type):
         this_id = get_unique_id(parent)
 
     for i, item in enumerate(items):
-        LOG.info('Looping inside convert_list(): item="%s", type="%s"' % (unicode_me(item), type(item).__name__))
         attr = {} if not ids else { 'id': '%s_%s' % (this_id, i+1) }
         if isinstance(item, numbers.Number) or type(item) in (str, unicode):
             addline(convert_kv('item', item, attr_type, attr))
