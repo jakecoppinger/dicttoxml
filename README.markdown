@@ -205,22 +205,8 @@ As always, this remains compatible with arbitrary nesting of objects and types.
 Debugging
 =========
 
-You can also enable debugging information.
+Debugging has been removed to keep logs clean.
 
-    >>> import dicttoxml
-    >>> dicttoxml.set_debug()
-    Debug mode is on. Events are logged at: dicttoxml.log
-    >>> xml = dicttoxml.dicttoxml(some_dict)
-
-By default, debugging information is logged to `dicttoxml.log`, but you can change this:
-
-    >>> dicttoxml.set_debug(filename='some_other_filename.log')
-    Debug mode is on. Events are logged at: some_other_filename.log
-
-To turn debug mode off, just call `set_debug` with an argument of `False`:
-
-    >>> dicttoxml.set_debug(False)
-    Debug mode is off.
 
 If you encounter any errors in the code, please file an issue on github: [https://github.com/quandyfactory/dicttoxml/issues](https://github.com/quandyfactory/dicttoxml/issues).
 
